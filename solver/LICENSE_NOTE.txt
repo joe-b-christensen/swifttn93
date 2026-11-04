@@ -1,0 +1,15 @@
+solver/ licence notes (full texts in LICENSE)
+
+- argparse.cpp, argparse.hpp: unchanged copies from tn93 v1.1.0 (github.com/veg/tn93, commit 076eb0f),
+  MIT licence, Sergei L. Kosakovsky Pond et al.
+- refkernel.cpp / refkernel.h: verbatim excerpts of tn93 v1.1.0 src/tn93_shared.cc and src/tn93_shared.h
+  (computeTN93, describe_sequence, the ambiguity handler, alphabet tables), MIT licence, same authors.
+- swifttn93.cpp: new code; its JSON/histogram/output statements and the TN93 formula tail are transcribed
+  from tn93's TN93.cpp / tn93_shared.cc (MIT) to keep byte-identical output.
+- vlog.h / vlog_data.h: an AVX-512 re-implementation of the natural logarithm algorithm of Arm's
+  optimized-routines (github.com/ARM-software/optimized-routines, MIT OR Apache-2.0 WITH LLVM-exception),
+  which glibc ships as __ieee754_log. The 274 constants in vlog_data.h were read from the system libm
+  (Ubuntu GLIBC 2.39-0ubuntu8.9) so that results match it bit for bit; they are the values of Ln2hi, Ln2lo,
+  A, B and T in Arm's math/log_data.c. swifttn93 re-verifies against the running libm at startup and uses
+  scalar log() if they differ.
+- fastfmt.h: new code.

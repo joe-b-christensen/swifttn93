@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use swifttn93, please cite it as below, and also cite tn93, whose behaviour it reproduces, and HIV-TRACE."
+title: "swifttn93: a byte-identical drop-in replacement for tn93"
+type: software
+version: 1.0.0
+date-released: 2026-11-04
+license: MIT
+repository-code: "https://github.com/joe-b-christensen/swifttn93"
+authors:
+  - family-names: Christensen
+    given-names: Joe
+    orcid: "https://orcid.org/0009-0007-0908-1299"
+    email: joechristensen@clin.au.dk
+    affiliation: "Translational Neuropsychiatry Unit (TNU), Department of Clinical Medicine, Aarhus University, Denmark"
+keywords:
+  - TN93
+  - tn93
+  - HIV-TRACE
+  - molecular epidemiology
+  - performance
+abstract: >-
+  swifttn93 writes tn93 v1.1.0's single-thread distance file and JSON summary, byte for byte, at any thread count. On
+  three real HIV-1 sets at the 1.5% threshold, at two threads on an AVX-512 CPU, it was 25- to 30-fold faster than
+  standard tn93 and 1.2- to 1.4-fold faster than tn93's filtered mode, -S, which reports the same links but summarises
+  only the pairs that pass its filter. On an AVX2 laptop it was 6-fold faster than standard tn93, and -S was 3.5- to
+  7-fold faster than swifttn93.
+references:
+  - type: software
+    title: "tn93"
+    authors:
+      - family-names: Kosakovsky Pond
+        given-names: Sergei L.
+      - name: "et al."
+    version: 1.1.0
+    repository-code: "https://github.com/veg/tn93"
+  - type: article
+    title: "HIV-TRACE (TRAnsmission Cluster Engine): a tool for large scale molecular epidemiology of HIV-1 and other rapidly evolving pathogens"
+    authors:
+      - family-names: Kosakovsky Pond
+        given-names: Sergei L.
+      - family-names: Weaver
+        given-names: Steven
+      - family-names: Leigh Brown
+        given-names: Andrew J.
+      - family-names: Wertheim
+        given-names: Joel O.
+    journal: Molecular Biology and Evolution
+    year: 2018
+    volume: 35
+    start: 1812
+    end: 1819
+    doi: "10.1093/molbev/msy016"
